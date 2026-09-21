@@ -1,5 +1,5 @@
 /* ============================================================
-   KALAYATRA ART MAP — data
+   KALAAYATRA ART MAP — data
    x, y are positions on a 0–1000 stylized viewBox (not GPS-precise —
    this is an illustrative map, roughly proportioned north-south /
    east-west, not a geographic projection).

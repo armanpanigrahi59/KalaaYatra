@@ -1,5 +1,5 @@
 /* ============================================================
-   KALAYATRA — data
+   KALAAYATRA — data
    Each era holds artifacts with the info shown in the modal.
    ============================================================ */
 const timelineData = [
