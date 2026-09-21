@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalayatra — A Journey Through Indian Art</title>
+<meta name="description" content="Kalayatra is an interactive timeline of Indian art, from the Indus Valley to the contemporary era, with clickable artifacts and their history.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Eczar:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">🪷</span>
+    <span class="brand-name">Kalayatra</span>
+  </div>
+  <nav class="header-nav">
+    <a href="#timeline">Timeline</a>
+    <a href="map.html">Art Map</a>
+    <a href="#search-section">Explore</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-diya" aria-hidden="true">
+    <span class="flame"></span>
+  </div>
+  <p class="hero-eyebrow">कलायात्रा · a journey of art</p>
+  <h1 class="hero-title">Kalayatra</h1>
+  <p class="hero-sub">Five thousand years of Indian art, told through the objects that carried it — from a bronze
+    dancer in Mohenjo-daro to a canvas in a Mumbai studio. Follow the river below, and stop wherever a piece
+    catches your eye.</p>
+  <a href="#timeline" class="scroll-cue" aria-label="Scroll to timeline">
+    <span>Begin the journey</span>
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none" aria-hidden="true">
+      <path d="M8 1V22M8 22L2 16M8 22L14 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</section>
+
+<section class="intro" id="about">
+  <p><span class="intro-drop">भ</span>arat's art was never one thing. It was seals pressed into clay by a river
+  civilization, stone lions carved to carry an emperor's word, bronze gods caught mid-dance, miniatures painted
+  with a single squirrel-hair brush, and protest folded into a Kalighat sketch. Each era answered the one before
+  it. <strong>Kalayatra</strong> lays eight of these eras end to end — click any artifact below to step closer.</p>
+</section>
+
+<nav class="era-nav" id="era-nav" aria-label="Jump to era">
+  <!-- populated by script.js -->
+</nav>
+
+<main>
+  <section class="timeline-section" id="timeline">
+    <svg class="river-svg" id="riverSvg" aria-hidden="true">
+      <defs>
+        <linearGradient id="riverGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3C8A87"/>
+          <stop offset="35%" stop-color="#D4A017"/>
+          <stop offset="70%" stop-color="#C1440E"/>
+          <stop offset="100%" stop-color="#E9C25E"/>
+        </linearGradient>
+      </defs>
+      <path id="riverPath" d="" />
+    </svg>
+    <div class="timeline-container" id="timelineContainer">
+      <!-- era rows populated by script.js -->
+    </div>
+  </section>
+
+  <section class="search-section" id="search-section">
+    <h2>Find a piece</h2>
+    <p class="search-sub">Search across every era by name, medium, or keyword — try "bronze", "miniature", or "temple".</p>
+    <div class="search-bar">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <circle cx="8" cy="8" r="6.25" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M12.5 12.5L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <input type="text" id="searchInput" placeholder="Search artifacts…" aria-label="Search artifacts">
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="footer-mark" aria-hidden="true">॥ शुभम् भवतु ॥</p>
+  <p>Kalayatra — an educational tribute to Indian art history. Built for exploring, not for sale.</p>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-icon" id="modalIcon" aria-hidden="true"></div>
+    <p class="modal-era" id="modalEra"></p>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-meta" id="modalMeta"></div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <p class="modal-fact" id="modalFact"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

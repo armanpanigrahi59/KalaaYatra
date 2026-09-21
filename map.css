@@ -1,0 +1,255 @@
+/* ============================================================
+   MAP PAGE — extends style.css tokens with category colors
+   ============================================================ */
+:root {
+  --cat-ancient:    #3C8A87; /* teal   — Ancient Urban Art */
+  --cat-classical:  #D4A017; /* gold   — Classical Sculpture */
+  --cat-cave:       #C1440E; /* vermilion — Cave & Mural Art */
+  --cat-temple:     #9C4A5C; /* rose   — Temple Sculpture */
+  --cat-bronze:     #E9C25E; /* amber  — Bronze & Devotional Art */
+  --cat-miniature:  #8B6FA8; /* mauve  — Miniature Painting */
+  --cat-modern:     #6B8F71; /* sage   — Modern Art Movements */
+}
+
+.header-nav a.is-current { color: var(--gold-soft); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.map-hero {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 70px 24px 20px;
+  text-align: center;
+}
+.map-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  color: var(--gold-soft);
+  margin: 4px 0 16px;
+}
+.map-hero-sub {
+  color: var(--cream);
+  opacity: 0.85;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   FILTER PILLS (mirrors era-nav / era-pill from style.css)
+   ============================================================ */
+.filter-nav {
+  position: sticky;
+  top: 63px;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 16px clamp(20px, 5vw, 60px);
+  background: linear-gradient(to bottom, rgba(23,15,38,0.92), rgba(23,15,38,0.7));
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.filter-pill {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.25s ease;
+}
+.filter-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pill-color, var(--gold));
+  flex: 0 0 auto;
+}
+.filter-pill:hover, .filter-pill:focus-visible { border-color: var(--pill-color, var(--gold)); color: var(--cream); }
+.filter-pill.active {
+  background: var(--pill-color, var(--gold));
+  border-color: var(--pill-color, var(--gold));
+  color: var(--bg-deep);
+  font-weight: 600;
+}
+
+/* ============================================================
+   MAP
+   ============================================================ */
+.map-section {
+  max-width: 1000px;
+  margin: 50px auto 20px;
+  padding: 0 20px;
+}
+
+.map-wrap {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 30%, rgba(212,160,23,0.08), transparent 60%), var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+#indiaMap {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 70vh;
+}
+
+.map-caption {
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 10px 0 0;
+  font-style: italic;
+}
+
+.india-shape {
+  fill: var(--bg-panel-2);
+  stroke: var(--gold);
+  stroke-width: 2;
+  stroke-opacity: 0.5;
+}
+
+.pin {
+  cursor: pointer;
+}
+.pin .pin-ring {
+  fill: none;
+  stroke: var(--pin-color, var(--gold));
+  stroke-width: 3;
+  opacity: 0.55;
+  transform-origin: center;
+  animation: pulse 2.6s ease-out infinite;
+}
+.pin .pin-dot {
+  fill: var(--bg-deep);
+  stroke: var(--pin-color, var(--gold));
+  stroke-width: 3;
+  transition: transform 0.2s ease;
+}
+.pin .pin-icon {
+  font-size: 26px;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+.pin:hover .pin-dot, .pin:focus-visible .pin-dot {
+  transform: scale(1.15);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.pin.dimmed { opacity: 0.18; }
+.pin.dimmed .pin-ring { animation: none; }
+
+@keyframes pulse {
+  0%   { r: 22; opacity: 0.55; }
+  80%  { r: 44; opacity: 0; }
+  100% { r: 44; opacity: 0; }
+}
+
+/* ============================================================
+   LEGEND
+   ============================================================ */
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 0 10px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.legend-item .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--legend-color, var(--gold));
+}
+
+/* ============================================================
+   LOCATION GRID
+   ============================================================ */
+.location-grid-section {
+  max-width: 1100px;
+  margin: 60px auto 100px;
+  padding: 0 20px;
+  text-align: center;
+}
+.location-grid-section h2 {
+  font-family: var(--font-display);
+  color: var(--gold-soft);
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+.location-grid-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+}
+.location-grid-section .artifact-grid { text-align: left; }
+.location-card-state {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--card-color, var(--gold-soft));
+  margin: 0 0 4px;
+}
+.location-card.is-hidden { display: none; }
+
+/* ============================================================
+   MODAL HIGHLIGHTS LIST (extends style.css modal)
+   ============================================================ */
+.modal-highlights {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modal-highlights li {
+  font-size: 0.92rem;
+  color: var(--cream);
+  opacity: 0.92;
+  padding-left: 16px;
+  position: relative;
+}
+.modal-highlights li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 0.6rem;
+  color: var(--era-color, var(--gold));
+}
+.modal-highlights li strong { color: var(--gold-soft); font-weight: 600; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 600px) {
+  .filter-nav { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
+  .map-wrap { padding: 12px; }
+  .pin .pin-icon { font-size: 22px; }
+}

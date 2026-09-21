@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalayatra — The Art Atlas of India</title>
+<meta name="description" content="An interactive map of key locations in Indian art history — temples, caves, painting schools, and workshops — with images, descriptions, and historical context.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Eczar:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="map.css">
+</head>
+<body>
+
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">🪷</span>
+    <span class="brand-name">Kalayatra</span>
+  </div>
+  <nav class="header-nav">
+    <a href="index.html">Timeline</a>
+    <a href="map.html" class="is-current">Art Map</a>
+    <a href="index.html#about">About</a>
+  </nav>
+</header>
+
+<section class="map-hero">
+  <p class="hero-eyebrow">भारत का कला मानचित्र · the art atlas of india</p>
+  <h1 class="map-hero-title">Where India's Art Was Made</h1>
+  <p class="map-hero-sub">Art history isn't just a timeline — it's a map. Caves in Maharashtra, bronze
+    workshops in Tamil Nadu, painting courts in the Himalayan foothills: each region shaped its own visual
+    language. Filter by art form, or tap a point on the map to step inside a place.</p>
+</section>
+
+<nav class="filter-nav" id="filterNav" aria-label="Filter by art form">
+  <!-- populated by map.js -->
+</nav>
+
+<main>
+  <section class="map-section">
+    <div class="map-wrap">
+      <svg id="indiaMap" viewBox="0 0 1000 1000" role="img" aria-label="Stylized map of India with clickable location markers"></svg>
+      <p class="map-caption">A stylized, illustrative map — not drawn to precise geographic scale.</p>
+    </div>
+
+    <div class="map-legend" id="mapLegend" aria-hidden="true">
+      <!-- populated by map.js -->
+    </div>
+  </section>
+
+  <section class="location-grid-section">
+    <h2>All Locations</h2>
+    <p class="location-grid-sub">Tap any card — or any point on the map above — to open its full story.</p>
+    <div class="artifact-grid" id="locationGrid">
+      <!-- populated by map.js -->
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="footer-mark" aria-hidden="true">॥ शुभम् भवतु ॥</p>
+  <p>Kalayatra — an educational tribute to Indian art history. Built for exploring, not for sale.</p>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-icon" id="modalIcon" aria-hidden="true"></div>
+    <p class="modal-era" id="modalEra"></p>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-meta" id="modalMeta"></div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <ul class="modal-highlights" id="modalHighlights"></ul>
+    <p class="modal-fact" id="modalFact"></p>
+  </div>
+</div>
+
+<script src="map.js"></script>
+</body>
+</html>
